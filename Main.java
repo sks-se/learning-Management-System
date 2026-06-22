@@ -2,7 +2,8 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
-    static  ArrayList<User> users = new ArrayList<>();
+    static ArrayList<User> users = new ArrayList<>();
+
     public static void main(String[] args) {
 
         // #Home
@@ -18,7 +19,7 @@ public class Main {
             switch (choice) {
                 case 1: //#login
                     User loggedInUser = loginUser();
-                    if(loggedInUser != null){
+                    if (loggedInUser != null) {
                         loggedInUser.showDashboard();
                     } else {
                         System.out.println("Invalid Id or Password !!!");
@@ -40,7 +41,8 @@ public class Main {
                         default:
                             System.out.println("Enter valid input");
                             return;
-                    } break;
+                    }
+                    break;
                 case 3:
                     System.out.println("Thanks for Using SKS AI LMS");
                     return;
@@ -50,11 +52,12 @@ public class Main {
 
         }
     }
+
     public static void registerStudent() {
         System.out.println("Enter Name:\nEnter Email\nEnter Password");
         Scanner sc = new Scanner(System.in);
         String studentName = sc.nextLine();
-        String studentEmail = sc.next();
+        String studentEmail = sc.nextLine();
         String studentPassword = sc.next();
         Student student = new Student(studentName, studentEmail, studentPassword);
         users.add(student);
@@ -62,33 +65,35 @@ public class Main {
         System.out.println("You have registered Successfully");
         System.out.println("Your Id: " + student.getId());
     }
-    public static void registerinstructor(){
+
+    public static void registerinstructor() {
         System.out.println("Enter Name:\nEnter Email\nEnter Password");
         Scanner sc = new Scanner(System.in);
         String instructorName = sc.nextLine();
-        String instructorEmail = sc.next();
-        String instructorPassword = sc.next();
+        String instructorEmail = sc.nextLine();
+
+        String instructorPassword = sc.nextLine();
         Instructor instructor = new Instructor(instructorName, instructorEmail, instructorPassword);
         users.add(instructor);
         System.out.println(" You have registered Successfully");
         System.out.println("Your Id: " + instructor.getId());
     }
-    public static User loginUser(){
+
+    public static User loginUser() {
         System.out.println("Enter details to Login !!");
         Scanner sc = new Scanner(System.in);
         System.out.println("Id: \nPassword: ");
         int inputId = sc.nextInt();
         sc.skip("(\r\n|[\n\r\u2028\u2029\u0085]?)");
         String inputPassword = sc.next();
-        for(User user: users){
-            if (inputId == user.getId() && inputPassword.equals(user.getPassword())){
-                System.out.println("Welcome "+ user.getName());
+        for (User user : users) {
+            if (inputId == user.getId() && inputPassword.equals(user.getPassword())) {
+                System.out.println("Welcome " + user.getName());
                 return user;
             }
         }
         return null;
     }
-
 
 
 }
