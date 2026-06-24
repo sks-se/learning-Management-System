@@ -60,7 +60,9 @@ public class User {
         this.password = password;
     }
 
+public void courseManagement(){
 
+}
     public void showDashboard() {
         System.out.println("User Dashboard");
     }
