@@ -8,10 +8,25 @@ Current Features:
 - Role Based Dashboards
 - profile details update menu option 
 User profile
-|
-├── Profile
-│    ├── Update Name
-│    ├── Update Email
-│    ├── Change Password
-│    └── Back
-└── Logout
+Learning Management System
+│
+├── Authentication
+│   ├── Register
+│   ├── Login
+│   ├── Password Change
+│   └── Profile Management
+│
+├── Student
+│   ├── Dashboard
+│   └── Profile
+│
+├── Instructor
+│   ├── Dashboard
+│   ├── Profile
+│   └── Course Management
+│
+└── Course
+    ├── Create
+    ├── View
+    ├── Update
+    └── Delete
