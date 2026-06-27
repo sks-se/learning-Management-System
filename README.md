@@ -18,7 +18,9 @@ Learning Management System
 │
 ├── Student
 │   ├── Dashboard
-│   └── Profile
+│   ├── Profile
+│   ├── View Available courses
+│   └── My courses
 │
 ├── Instructor
 │   ├── Dashboard
