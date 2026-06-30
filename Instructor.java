@@ -2,10 +2,10 @@ import java.lang.Override;
 import java.util.Scanner;
 
 public class Instructor extends User {
+    private static int nextInstructorId = 2001;
     private String specialization;
-
     public Instructor(String name, String specialization, String email, String password) {
-        super(name, email, password);
+        super(nextInstructorId++, name, email, password);
         setSpecialization(specialization);
     }
 
