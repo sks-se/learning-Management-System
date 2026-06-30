@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 public class User {
-    private static int nextId = 101;
+   
     private int id;
     private String name;
     private String email;
@@ -9,7 +9,7 @@ public class User {
     Scanner sc = new Scanner(System.in);
 
     public User(String name, String email, String password) {
-        this.id = nextId++;
+        this.id = id;
         setName(name);
         updateEmail(email);
         updatePassword(password);
