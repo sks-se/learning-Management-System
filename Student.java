@@ -3,9 +3,9 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Student extends User {
-
+private static int nextStudentId = 1001;
     public Student(String name, String email, String password) {
-        super(name, email, password);
+        super(nextStudentId++, name, email, password);
 
     }
 
