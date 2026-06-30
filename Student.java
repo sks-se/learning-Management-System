@@ -19,10 +19,7 @@ public class Student extends User {
                 "Name: " + getName() + "\n" +
                 "Email: " + getEmail());
         updatedMenu();
-
-
     }
-
 
     @Override
     public void showDashboard() {
@@ -40,7 +37,7 @@ public class Student extends User {
                     viewAvailableCourse(); enrollCourse();
                     break;
                 case 3:
-                    myCourse();
+                    myCourse(); removeCourse();
                     break;
                 case 4:
                     return;
@@ -57,39 +54,69 @@ public class Student extends User {
     }
 
     public void enrollCourse() {
-        System.out.print("Enter Course ID: ");
-        int inputCourseID = sc.nextInt();
-        Course selectedCourse = null;
-        boolean courseExistence = false;
-        //first loops to find course
-        for (Course course : Main.courses) {
-            if (course.getCourseId() == inputCourseID) {
-                selectedCourse = course;
-                break;
-            }
-        }
-        if (selectedCourse != null) {
-            for (Course course1 : enrolledCourse) {
-                if (course1.getCourseId() == selectedCourse.getCourseId()) {
-                    courseExistence = true;
-                    break;
+        System.out.println("1. Enroll to course\n2. back");
+        int option = sc.nextInt();
+        switch (option) {
+            case 1:
+                System.out.print("Enter Course ID: ");
+                int inputCourseID = sc.nextInt();
+                Course selectedCourse = null;
+                boolean courseExistence = false;
+                //first loops to find course
+                for (Course course : Main.courses) {
+                    if (course.getCourseId() == inputCourseID) {
+                        selectedCourse = course;
+                        break;
+                    }
                 }
-            }
-            if (!courseExistence) {
-                enrolledCourse.add(selectedCourse);
-                System.out.println("Enrolled Successfully into " + selectedCourse.getCourseName());
-            } else {
-                System.out.println(" Already Enrolled");
-            }
-        } else {
-            System.out.println("Course not found");
+                if (selectedCourse != null) {
+                    for (Course course1 : enrolledCourse) {
+                        if (course1.getCourseId() == selectedCourse.getCourseId()) {
+                            courseExistence = true;
+                            break;
+                        }
+                    }
+                    if (!courseExistence) {
+                        enrolledCourse.add(selectedCourse);
+                        System.out.println("Enrolled Successfully into " + selectedCourse.getCourseName());
+                    } else {
+                        System.out.println(" Already Enrolled");
+                    }
+                } else {
+                    System.out.println("Course not found");
+                }
+                break;
+            case 2:
+                return;
         }
     }
-
     public void myCourse() {
 
         for (Course course : enrolledCourse) {
             System.out.println("\n" + course.getCourseName() + ": " + course.getCourseId());
+        }
+
+    }
+    public void removeCourse() {
+        System.out.println("1. Drop course\n2. Back");
+        int option = sc.nextInt(); sc.nextLine();
+        Course selectedCourse = null;
+        switch (option) {
+            case 1:
+                System.out.println("Enter course Id to Drop");
+                int inputId = sc.nextInt();
+            for (Course course : enrolledCourse) {
+                if (course.getCourseId() == inputId) {
+                    selectedCourse = course;break;
+                }
+            }
+            if (selectedCourse != null) {
+                enrolledCourse.remove(selectedCourse);
+                System.out.println("Course dropped");
+            } else {
+                System.out.println("Course not enrolled");
+            } break;
+            case 2: return;
         }
     }
 }
