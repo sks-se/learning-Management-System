@@ -5,7 +5,7 @@ public class Main {
     static ArrayList<User> users = new ArrayList<>();
 
     public static void main(String[] args) {
-
+ Admin admin = new Admin("System Admin", "amin@skslms.com", "admin@123");
         // #Home
         System.out.println("\n======================");
         System.out.println("LEARNING MANAGEMENT SYSTEM");
