@@ -2,10 +2,14 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
+    
     static ArrayList<User> users = new ArrayList<>();
-
+    static ArrayList<User> students = new ArrayList<>();
+    static ArrayList<User> instructor = new ArrayList<>();
+    static ArrayList<Course> courses = new ArrayList<>();
     public static void main(String[] args) {
- Admin admin = new Admin("System Admin", "amin@skslms.com", "admin@123");
+        Admin admin = new Admin("System Admin", "amin@skslms.com", "admin@123");
+        users.add(admin);
         // #Home
         System.out.println("\n======================");
         System.out.println("LEARNING MANAGEMENT SYSTEM");
@@ -26,7 +30,7 @@ public class Main {
                     }
                     break;
 
-                case 2:
+                case 2: //#register
                     System.out.println("Register Type");
                     System.out.println("\n1. Student\n2. Instructor\n");
                     int registerChoice = sc.nextInt();
@@ -61,20 +65,25 @@ public class Main {
         String studentPassword = sc.next();
         Student student = new Student(studentName, studentEmail, studentPassword);
         users.add(student);
+        students.add(student);
 
         System.out.println("You have registered Successfully");
         System.out.println("Your Id: " + student.getId());
     }
 
     public static void registerinstructor() {
-        System.out.println("Enter Name:\nEnter Email\nEnter Password");
+        System.out.println("Enter Name: ");
         Scanner sc = new Scanner(System.in);
         String instructorName = sc.nextLine();
+        System.out.println("Enter Specialization: ");
+        String instructorSpecialization = sc.nextLine();
+        System.out.println("Enter Email: ");
         String instructorEmail = sc.nextLine();
-
+        System.out.println("Enter Password: ");
         String instructorPassword = sc.nextLine();
-        Instructor instructor = new Instructor(instructorName, instructorEmail, instructorPassword);
+        Instructor instructor = new Instructor(instructorName,instructorSpecialization, instructorEmail, instructorPassword);
         users.add(instructor);
+        students.add(instructor);
         System.out.println(" You have registered Successfully");
         System.out.println("Your Id: " + instructor.getId());
     }
@@ -94,6 +103,4 @@ public class Main {
         }
         return null;
     }
-
-
 }
